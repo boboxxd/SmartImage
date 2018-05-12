@@ -7,7 +7,7 @@ class Config
 {
 public:
     explicit Config();
-    ~Config(){delete setting;}
+    ~Config();
     QString path_in(const QString& kind);
     QString path_out(const QString& kind);
     QString model(const QString& kind);

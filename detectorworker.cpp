@@ -27,30 +27,35 @@ DetectorWorker::DetectorWorker(QObject *parent) : QThread(parent)
     kind="";
 }
 
+DetectorWorker::~DetectorWorker()
+{
+    qDebug()<<"DetectorWorker::~DetectorWorker()";
+    stop();
+}
+
 void DetectorWorker::startdetect()
 {
     Detector worker;
-
     for (auto i=0;i<filelist.count();i++)
     {
-        if(isrun){
-            QMutexLocker locker(&m_lock);
-            filename=filelist.at(i);
-            QString name=QFileInfo(filename).baseName();
-            image=cv::imread((config.path_in(kind)+"/"+filename).toStdString());
-            emit message(QString("detecting %1 ...").arg(filename));
-            qDebug()<<QString("-----start detect %1 by %2-----").arg(filename).arg(modelname);
-            worker.CarDetection(image,&result,0.45,modelname.toStdString());
-            alarmmsg();
-
-            save();
-            emit message(QString("detecting %1 completed...").arg(filename));
-            emit progress((float(i+1)/runcount)*100);
-        }else{
-            break;
+        QMutexLocker locker(&m_lock);
+        filename=filelist.at(i);
+        QString name=QFileInfo(filename).baseName();
+        image=cv::imread((config.path_in(kind)+"/"+filename).toStdString());
+        emit message(QString("detecting %1 ...").arg(filename));
+        qDebug()<<"";
+        qDebug()<<QString("--- [%1] Start detect %2").arg(i).arg(filename);
+        worker.CarDetection(image,&result,0.45,modelname.toStdString());
+        alarmmsg();
+        save();
+        emit message(QString("detecting %1 completed...").arg(filename));
+        emit progress((float(i+1)/runcount)*100);
+        if(!isrun){
+            qDebug()<<"exit from tasks...";
+            return;
         }
     }
-    qDebug()<<"exit from tasks...";
+
 }
 
 void DetectorWorker::run()
@@ -61,7 +66,6 @@ void DetectorWorker::run()
 
 void DetectorWorker::alarmmsg()
 {
-    qDebug()<<result.count;
     //test
     cv::putText(image,"type",cv::Point(200,200),2, 1, cv::Scalar(0,255,0));
     cv::Rect rect(200,200,100,100);
@@ -75,8 +79,9 @@ void DetectorWorker::alarmmsg()
     msg.time = QDateTime::currentDateTime().toString("yyyy-MM-dd hh:mm:ss");
     msg.type = QString("%1").arg(kind);
     sqlhandle.insertRow(msg.id,msg);
+    qDebug()<<QString("--- Insert {%1,%2,%3,%4,%5,%6} to database").arg(msg.id).arg(msg.path).arg(msg.name)\
+              .arg(msg.time).arg(msg.type).arg(msg.state);
     emit update(msg.id);
-
 
 //    std::vector<CarInfo> &carinfo=result.carInfo;
 //    for(auto i=carinfo.begin();i!=carinfo.end();i++)

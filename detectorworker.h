@@ -16,6 +16,7 @@ class DetectorWorker : public QThread
     Q_OBJECT
 public:
      DetectorWorker(QObject *parent = nullptr);
+     ~DetectorWorker();
     void startdetect();
     void run();
     void alarmmsg();

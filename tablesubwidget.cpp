@@ -11,9 +11,6 @@ TableSubWidget::TableSubWidget(QWidget *parent) : QTableWidget(parent)
     connect(this,&TableSubWidget::itemClicked,this,&TableSubWidget::onPressed);
     sqlhandle.setdb("/home/hhit/xxdcode/build-SmartImage-Desktop_Qt_5_9_4_GCC_64bit-Debug/data.db");
     sqlhandle.open();
-    //sqlhandle.createtable();
-    qDebug()<<sqlhandle.isopen();
-
 }
 
 void TableSubWidget::initUI()
@@ -42,7 +39,6 @@ void TableSubWidget::onPressed(QTableWidgetItem *item)
 
 void TableSubWidget::addentry(int row)
 {
-    qDebug()<<"update from sql"<<row;
     Config config;
     int widgetrow=this->rowCount();
     this->insertRow(widgetrow);
@@ -68,9 +64,7 @@ void TableSubWidget::addentry(int row)
 }
 
 void TableSubWidget::loadhistory(const QString &kind)
-{
-    qDebug()<<"void TableSubWidget::loadhistory(const QString &kind)";
-
+{   
     QVector<AlarmMsg> msgvec = sqlhandle.queryRow(kind);
 
     for (auto i=msgvec.begin();i!=msgvec.end();i++)
@@ -78,7 +72,6 @@ void TableSubWidget::loadhistory(const QString &kind)
         int widgetrow=this->rowCount();
         this->insertRow(widgetrow);
         AlarmMsg msg=std::move(*i);
-        qDebug()<<msg.name;
         QTableWidgetItem *item0=new QTableWidgetItem(QString("%1").arg(widgetrow+1));
         QTableWidgetItem *item1=new QTableWidgetItem(msg.path);
         QTableWidgetItem *item2=new QTableWidgetItem(msg.name);

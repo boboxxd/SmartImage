@@ -5,7 +5,7 @@
 
 SqlHandle::SqlHandle(QObject *parent) : QObject(parent)
 {
-
+    sql_query=nullptr;
 }
 
 void SqlHandle::setdb(QString name)
@@ -15,17 +15,16 @@ void SqlHandle::setdb(QString name)
 
 SqlHandle::~SqlHandle()
 {
-    if(sql_query!=0)
+    if(sql_query!=nullptr)
     {
         delete sql_query;
-        sql_query=0;
+        sql_query=nullptr;
     }
     database.close();
 }
 
 void SqlHandle::createtable()
 {
-    qDebug()<<"---void SqlHandle::createtable()";
     if(!isopen())
     {
         open();
@@ -46,7 +45,6 @@ void SqlHandle::createtable()
 
 bool SqlHandle::open()
 {
-    qDebug()<<"---bool SqlHandle::open()";
     if(QSqlDatabase::contains("qt_sql_default_connection"))
       database = QSqlDatabase::database("qt_sql_default_connection");
     else
@@ -69,7 +67,6 @@ bool SqlHandle::open()
 
 bool SqlHandle::isopen()
 {
-    qDebug()<<database.tables();
     return database.isOpen();
 }
 
@@ -93,8 +90,6 @@ int SqlHandle::rowcount()
 
 void SqlHandle::insertRow(int row,const AlarmMsg& msg)
 {
-    qDebug()<<"---void SqlHandle::insertRow(int row,const AlarmMsg& msg)";
-
     if (!database.isOpen())
     {
         open();
@@ -148,7 +143,6 @@ AlarmMsg SqlHandle::queryRow(int row)
 
 QVector<AlarmMsg> SqlHandle::queryRow(const QString &kind)
 {
-    qDebug()<<"QVector<AlarmMsg> SqlHandle::queryRow(const QString &kind)";
     QVector<AlarmMsg> msgvec;
     QString query_sql = QString("select * from alarminfo where type = '%1'").arg(kind);    //插入数据
     if(!sql_query->exec(query_sql))
@@ -164,9 +158,7 @@ QVector<AlarmMsg> SqlHandle::queryRow(const QString &kind)
         msg.time = sql_query->value("Time").toString();
         msg.type = sql_query->value("Type").toString();
         msg.state = sql_query->value("State").toString();
-        qDebug()<<"msg.time"<<msg.time<<msg.id;
         msgvec.append(msg);
     }
-    qDebug()<<"over";
     return msgvec;
 }

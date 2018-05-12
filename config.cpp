@@ -8,6 +8,11 @@ Config::Config()
     init();
 }
 
+Config::~Config()
+{
+    delete setting;
+}
+
 QString Config::path_out(const QString &kind)
 {
     return setting->value(kind+"/output").toString();

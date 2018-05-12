@@ -15,21 +15,24 @@ Widget::Widget(QWidget *parent) :
 {
     ui->setupUi(this);
     Config config;//chu shi hua
-    worker=new DetectorWorker;
+    worker=nullptr;
+    worker=new DetectorWorker(this);
     initUI();
 }
 
 Widget::~Widget()
 {
-    delete worker;
     delete ui;
 }
 
 void Widget::closeEvent(QCloseEvent *event)
 {
-    worker->isrun=false;
-    worker->quit();
-    worker->wait(); //We have to wait again here!
+    if(worker!=nullptr)
+    {
+        worker->stop();
+        delete worker;
+    }
+        worker=nullptr;
 }
 
 void Widget::onQThreadFinished()
@@ -41,7 +44,6 @@ void Widget::onQThreadFinished()
 
 void Widget::ondowork(bool state)
 {
-    qDebug()<<state;
     if(state)
     {
         ui->startbtn->setText("结束分析");
