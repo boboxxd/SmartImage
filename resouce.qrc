@@ -1,0 +1,16 @@
+<RCC>
+    <qresource prefix="/">
+        <file>icon/background.png</file>
+        <file>icon/1.png</file>
+        <file>icon/rect.png</file>
+        <file>icon/next1.png</file>
+        <file>icon/privious1.png</file>
+        <file>icon/next.png</file>
+        <file>icon/frash.png</file>
+        <file>icon/combox.png</file>
+        <file>icon/start.png</file>
+        <file>icon/2.png</file>
+        <file>icon/check.png</file>
+        <file>icon/title.png</file>
+    </qresource>
+</RCC>

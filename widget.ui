@@ -1,0 +1,436 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Widget</class>
+ <widget class="QWidget" name="Widget">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>998</width>
+    <height>703</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Widget</string>
+  </property>
+  <property name="autoFillBackground">
+   <bool>false</bool>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">#Widget{
+background-color: rgb(9, 131, 176);
+padding: 0px;
+}
+</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <property name="leftMargin">
+    <number>0</number>
+   </property>
+   <property name="topMargin">
+    <number>0</number>
+   </property>
+   <property name="rightMargin">
+    <number>0</number>
+   </property>
+   <property name="bottomMargin">
+    <number>0</number>
+   </property>
+   <item row="0" column="0">
+    <widget class="QFrame" name="frame">
+     <property name="styleSheet">
+      <string notr="true">#frame {
+border-image: url(:/icon/background.png);
+}</string>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::NoFrame</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_5">
+      <item row="0" column="0">
+       <layout class="QVBoxLayout" name="verticalLayout_3" stretch="1,9">
+        <property name="spacing">
+         <number>0</number>
+        </property>
+        <item>
+         <widget class="QLabel" name="titlelabel">
+          <property name="autoFillBackground">
+           <bool>false</bool>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">border-image: url(:/icon/title.png);</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_3" stretch="2,9">
+          <item>
+           <widget class="QFrame" name="frame_2">
+            <property name="font">
+             <font>
+              <pointsize>15</pointsize>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">border:none</string>
+            </property>
+            <property name="frameShape">
+             <enum>QFrame::Panel</enum>
+            </property>
+            <property name="frameShadow">
+             <enum>QFrame::Plain</enum>
+            </property>
+            <layout class="QGridLayout" name="gridLayout_2">
+             <property name="leftMargin">
+              <number>0</number>
+             </property>
+             <property name="topMargin">
+              <number>0</number>
+             </property>
+             <property name="rightMargin">
+              <number>0</number>
+             </property>
+             <property name="bottomMargin">
+              <number>0</number>
+             </property>
+             <property name="spacing">
+              <number>0</number>
+             </property>
+             <item row="0" column="0">
+              <layout class="QVBoxLayout" name="verticalLayout_2" stretch="19,2">
+               <property name="spacing">
+                <number>0</number>
+               </property>
+               <item>
+                <widget class="Treewidget" name="treeWidget">
+                 <property name="styleSheet">
+                  <string notr="true">QTreeWidget{border:none;font: 16pt &quot;.SF NS Text&quot;;color :rgb(100,100,100); }
+QTreeWidget::Item{padding-top:10px; padding-bottom:4px; }
+QTreeWidget::Item:hover{background:skyblue; }
+QTreeWidget::item:selected{background:rgb(245, 169, 54); color:rgb(255, 255, 255); }
+QTreeWidget::item:selected:!active{border-width:0px; background:lightgreen; }
+
+QHeaderView::section{
+height:40px;
+font: 20pt &quot;.SF NS Text&quot;;
+background:white;
+border:none 
+} 
+</string>
+                 </property>
+                 <column>
+                  <property name="text">
+                   <string>识别类型</string>
+                  </property>
+                 </column>
+                 <item>
+                  <property name="text">
+                   <string>大尺寸</string>
+                  </property>
+                  <property name="textAlignment">
+                   <set>AlignLeading|AlignVCenter</set>
+                  </property>
+                  <property name="icon">
+                   <iconset>
+                    <selectedoff>:/icon/2.png</selectedoff>
+                    <selectedon>:/icon/check.png</selectedon>
+                   </iconset>
+                  </property>
+                  <property name="flags">
+                   <set>ItemIsSelectable|ItemIsDragEnabled|ItemIsEnabled</set>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>导地线</string>
+                  </property>
+                  <property name="textAlignment">
+                   <set>AlignLeading|AlignVCenter</set>
+                  </property>
+                  <property name="icon">
+                   <iconset resource="resouce.qrc">
+                    <normaloff>:/icon/2.png</normaloff>
+                    <normalon>:/icon/check.png</normalon>:/icon/2.png</iconset>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>附属设施</string>
+                  </property>
+                  <property name="textAlignment">
+                   <set>AlignLeading|AlignVCenter</set>
+                  </property>
+                  <property name="icon">
+                   <iconset resource="resouce.qrc">
+                    <normaloff>:/icon/2.png</normaloff>
+                    <normalon>:/icon/check.png</normalon>:/icon/2.png</iconset>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>杆塔</string>
+                  </property>
+                  <property name="textAlignment">
+                   <set>AlignLeading|AlignVCenter</set>
+                  </property>
+                  <property name="icon">
+                   <iconset resource="resouce.qrc">
+                    <normaloff>:/icon/2.png</normaloff>
+                    <normalon>:/icon/check.png</normalon>:/icon/2.png</iconset>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>基础</string>
+                  </property>
+                  <property name="textAlignment">
+                   <set>AlignLeading|AlignVCenter</set>
+                  </property>
+                  <property name="icon">
+                   <iconset resource="resouce.qrc">
+                    <normaloff>:/icon/2.png</normaloff>
+                    <normalon>:/icon/check.png</normalon>:/icon/2.png</iconset>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>接地</string>
+                  </property>
+                  <property name="textAlignment">
+                   <set>AlignLeading|AlignVCenter</set>
+                  </property>
+                  <property name="icon">
+                   <iconset resource="resouce.qrc">
+                    <normaloff>:/icon/2.png</normaloff>
+                    <normalon>:/icon/check.png</normalon>:/icon/2.png</iconset>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>绝缘子</string>
+                  </property>
+                  <property name="textAlignment">
+                   <set>AlignLeading|AlignVCenter</set>
+                  </property>
+                  <property name="icon">
+                   <iconset resource="resouce.qrc">
+                    <normaloff>:/icon/2.png</normaloff>
+                    <normalon>:/icon/check.png</normalon>:/icon/2.png</iconset>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>通道</string>
+                  </property>
+                  <property name="icon">
+                   <iconset resource="resouce.qrc">
+                    <normaloff>:/icon/2.png</normaloff>
+                    <normalon>:/icon/check.png</normalon>:/icon/2.png</iconset>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>小尺寸</string>
+                  </property>
+                  <property name="textAlignment">
+                   <set>AlignLeading|AlignVCenter</set>
+                  </property>
+                  <property name="icon">
+                   <iconset resource="resouce.qrc">
+                    <normaloff>:/icon/2.png</normaloff>
+                    <normalon>:/icon/check.png</normalon>:/icon/2.png</iconset>
+                  </property>
+                 </item>
+                </widget>
+               </item>
+               <item>
+                <widget class="QPushButton" name="startbtn">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">#startbtn {
+font: 15pt &quot;Ubuntu&quot;;
+color:white;
+border:none;
+background-color: rgb(245, 169, 54)
+}
+
+#startbtn:hover{
+color:rgb(64,148,148);
+border:none
+}
+
+#startbtn:pressed{
+color:green;
+border:none
+}
+
+#startbtn:checked{
+color: rgb(52, 101, 164);
+border:none;
+background-color: rgb(169, 245, 54)
+}</string>
+                 </property>
+                 <property name="text">
+                  <string>开始分析</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item>
+           <layout class="QVBoxLayout" name="verticalLayout" stretch="5,2">
+            <property name="spacing">
+             <number>1</number>
+            </property>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout">
+              <property name="spacing">
+               <number>0</number>
+              </property>
+              <item>
+               <widget class="ScrollArea" name="scrollArea1">
+                <property name="styleSheet">
+                 <string notr="true">border-width:5px;
+border-style: solid;
+border-color: rgb(101, 105, 149);
+background-color: rgb(255, 255, 255,100);
+margin-right: 0px;
+
+
+</string>
+                </property>
+                <property name="widgetResizable">
+                 <bool>true</bool>
+                </property>
+                <widget class="QWidget" name="scrollAreaWidgetContents">
+                 <property name="geometry">
+                  <rect>
+                   <x>0</x>
+                   <y>0</y>
+                   <width>385</width>
+                   <height>424</height>
+                  </rect>
+                 </property>
+                 <layout class="QGridLayout" name="gridLayout_3">
+                  <item row="0" column="0">
+                   <widget class="IMageLabel" name="imagelabel1">
+                    <property name="styleSheet">
+                     <string notr="true">border-width: 5px;
+border-style: solid;
+border-color: rgb(101, 105, 149);
+background-color: rgb(255, 255, 255,100);
+</string>
+                    </property>
+                    <property name="text">
+                     <string/>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+               </widget>
+              </item>
+              <item>
+               <widget class="ScrollArea" name="scrollArea2">
+                <property name="styleSheet">
+                 <string notr="true">border-width:5px;
+border-style: solid;
+border-color: rgb(101, 105, 149);
+background-color: rgb(255, 255, 255,100);
+margin-left: 0px;</string>
+                </property>
+                <property name="widgetResizable">
+                 <bool>true</bool>
+                </property>
+                <widget class="QWidget" name="scrollAreaWidgetContents_2">
+                 <property name="geometry">
+                  <rect>
+                   <x>0</x>
+                   <y>0</y>
+                   <width>385</width>
+                   <height>424</height>
+                  </rect>
+                 </property>
+                 <layout class="QGridLayout" name="gridLayout_4">
+                  <item row="0" column="0">
+                   <widget class="IMageLabel" name="imagelabel2">
+                    <property name="styleSheet">
+                     <string notr="true">border-width: 5px;
+border-style: solid;
+border-color: rgb(101, 105, 149);
+background-color: rgb(255, 255, 255,100);
+
+</string>
+                    </property>
+                    <property name="text">
+                     <string/>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <widget class="TableWidget" name="tablewidget" native="true"/>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <customwidgets>
+  <customwidget>
+   <class>IMageLabel</class>
+   <extends>QLabel</extends>
+   <header>imagelabel.h</header>
+  </customwidget>
+  <customwidget>
+   <class>ScrollArea</class>
+   <extends>QScrollArea</extends>
+   <header>scrollarea.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>TableWidget</class>
+   <extends>QWidget</extends>
+   <header>tablewidget.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>Treewidget</class>
+   <extends>QTreeWidget</extends>
+   <header>treewidget.h</header>
+  </customwidget>
+ </customwidgets>
+ <resources>
+  <include location="resouce.qrc"/>
+ </resources>
+ <connections/>
+</ui>
