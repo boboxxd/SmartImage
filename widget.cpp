@@ -55,7 +55,7 @@ void Widget::ondowork(bool state)
 
 void Widget::initUI()
 {
-    setWindowTitle(tr(""));
+    setWindowIcon(QIcon(":/icon/smartimage.png"));
     ui->startbtn->setCheckable(true);
     connect(ui->scrollArea1,&ScrollArea::scaleradio,ui->imagelabel1,&IMageLabel::RecieveScale);
     connect(ui->scrollArea2,&ScrollArea::scaleradio,ui->imagelabel2,&IMageLabel::RecieveScale);

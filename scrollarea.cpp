@@ -18,6 +18,7 @@ ScrollArea::ScrollArea(QWidget *parent)
 
 ScrollArea::~ScrollArea()
 {
+
 }
 
 bool ScrollArea::eventFilter(QObject *obj, QEvent *evt)

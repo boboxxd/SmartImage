@@ -113,7 +113,7 @@ border-image: url(:/icon/background.png);
                <item>
                 <widget class="Treewidget" name="treeWidget">
                  <property name="styleSheet">
-                  <string notr="true">QTreeWidget{border:none;font: 16pt &quot;.SF NS Text&quot;;color :rgb(100,100,100); }
+                  <string notr="true">QTreeWidget{border:none;font: 16pt &quot;.SF NS Text&quot;;color :rgb(100,100,100); background-color: rgb(255, 255, 255,200);}
 QTreeWidget::Item{padding-top:10px; padding-bottom:4px; }
 QTreeWidget::Item:hover{background:skyblue; }
 QTreeWidget::item:selected{background:rgb(245, 169, 54); color:rgb(255, 255, 255); }
@@ -295,7 +295,7 @@ background-color: rgb(169, 245, 54)
            </widget>
           </item>
           <item>
-           <layout class="QVBoxLayout" name="verticalLayout" stretch="5,2">
+           <layout class="QVBoxLayout" name="verticalLayout" stretch="6,2">
             <property name="spacing">
              <number>1</number>
             </property>
@@ -325,7 +325,7 @@ margin-right: 0px;
                    <x>0</x>
                    <y>0</y>
                    <width>385</width>
-                   <height>424</height>
+                   <height>446</height>
                   </rect>
                  </property>
                  <layout class="QGridLayout" name="gridLayout_3">
@@ -365,7 +365,7 @@ margin-left: 0px;</string>
                    <x>0</x>
                    <y>0</y>
                    <width>385</width>
-                   <height>424</height>
+                   <height>446</height>
                   </rect>
                  </property>
                  <layout class="QGridLayout" name="gridLayout_4">

@@ -66,7 +66,7 @@ color: rgb(255, 255, 255);</string>
         <item>
          <widget class="TableSubWidget" name="tableWidget">
           <property name="styleSheet">
-           <string notr="true">QTableWidget{font: 15pt &quot;.SF NS Text&quot;;color :rgb(100,100,100); }
+           <string notr="true">QTableWidget{font: 15pt &quot;.SF NS Text&quot;;color :rgb(100,100,100); background-color: rgb(255, 255, 255,200);}
 QTableWidget::Item:hover{background:skyblue; }
 QTableWidget::item:selected{background:lightgreen; color:rgb(255, 255, 255); }
 

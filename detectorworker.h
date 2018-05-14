@@ -28,6 +28,7 @@ public slots:
     void recieve(const QString& kind);
     void dowork(bool state);
     void stop();
+
 private:
     void save();
     void generateFilelist(const QString& kind);
@@ -39,6 +40,10 @@ private:
     QString filename;
     QString path;
     QString modelname;
+    float threshold;
+    float score_threshold;
+    int max_num_detections;
+    float tiling_nms_threshold;
     Config config;
     QStringList filelist;
     QMutex m_lock;

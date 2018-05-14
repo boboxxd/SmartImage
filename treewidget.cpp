@@ -57,7 +57,7 @@ QString Treewidget::todata(const QString &str)
 
     if(str == "小尺寸")
     {
-        result="xiaochixun";
+        result="xiaochicun";
     }
 
     if(str == "通道")

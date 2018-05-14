@@ -5,11 +5,12 @@
 #include <tablewidget.h>
 #include "config.h"
 #include <QVector>
+#include <QKeyEvent>
 TableSubWidget::TableSubWidget(QWidget *parent) : QTableWidget(parent)
 {
     initUI();
     connect(this,&TableSubWidget::itemClicked,this,&TableSubWidget::onPressed);
-    sqlhandle.setdb("/home/hhit/xxdcode/build-SmartImage-Desktop_Qt_5_9_4_GCC_64bit-Debug/data.db");
+    sqlhandle.setdb("./data.db");
     sqlhandle.open();
 }
 
@@ -21,7 +22,7 @@ void TableSubWidget::initUI()
     setSelectionMode(QAbstractItemView::SingleSelection); //设置只能选择一行，不能多行选中
     setEditTriggers(QAbstractItemView::NoEditTriggers);   //设置每行内容不可更改
     setAlternatingRowColors(true);                        //设置隔一行变一颜色，即：一灰一白
-    setSortingEnabled(true);
+    setSortingEnabled(false);
 }
 
 void TableSubWidget::resizeEvent(QResizeEvent *event)
@@ -29,6 +30,17 @@ void TableSubWidget::resizeEvent(QResizeEvent *event)
     Q_UNUSED(event);
     horizontalHeader()->setDefaultSectionSize(width()/6);
 }
+
+void TableSubWidget::keyPressEvent(QKeyEvent *event)
+{
+    if(currentRow()>=rowCount()||currentRow()<0)
+        return;
+     QTableWidget::keyPressEvent(event);
+     int row=currentRow();
+     QString name = item(row,1)->text()+"/"+item(row,2)->text();
+     emit sendimage(name);
+}
+
 
 void TableSubWidget::onPressed(QTableWidgetItem *item)
 {
@@ -55,12 +67,15 @@ void TableSubWidget::addentry(int row)
     item3->setTextAlignment(Qt::AlignHCenter);
     item4->setTextAlignment(Qt::AlignHCenter);
     item5->setTextAlignment(Qt::AlignHCenter);
+
     setItem(widgetrow,0,item0);
     setItem(widgetrow,1,item1);
     setItem(widgetrow,2,item2);
     setItem(widgetrow,3,item3);
     setItem(widgetrow,4,item4);
     setItem(widgetrow,5,item5);
+    qDebug()<<"---->"<<this->item(widgetrow,2)->text();
+    this->update();
 }
 
 void TableSubWidget::loadhistory(const QString &kind)
